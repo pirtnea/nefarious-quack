@@ -1,0 +1,5 @@
+CREATE TABLE projekti
+(
+nimi String(120),
+pvm date
+);
