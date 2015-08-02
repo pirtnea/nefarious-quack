@@ -1,2 +1,2 @@
 # nefarious-quack
-Tietokantasovellus, muistilista
+Tietokantasovellus, projektin työaikaseuranta
