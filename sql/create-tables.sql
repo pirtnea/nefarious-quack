@@ -1,31 +1,37 @@
 CREATE TABLE Projekti
 (
-nimi String(120),
+id SERIAL PRIMARY KEY,
+nimi varchar(120),
 pvm date
 );
 
-CREATE TABLE PPaallikko
+CREATE TABLE Paallikko
 (
-etunimi String(120),
-sukunimi String(120),
+id SERIAL PRIMARY KEY,
+etunimi varchar(120),
+sukunimi varchar(120),
 kayttajatunnus varchar(10)
 );
 
 CREATE TABLE Kirjaus
 (
+id SERIAL PRIMARY KEY,
 pvm date,
-kesto int,
+kesto int
 );
 
 CREATE TABLE Kayttaja
 (
-etunimi String(120),
-sukunimi String (120),
-kayttajatunnus varchar(10)
+id SERIAL PRIMARY KEY,
+etunimi varchar(120),
+sukunimi varchar(120),
+kayttajatunnus varchar(10),
+rooli varchar(10)
 );
 
 CREATE TABLE Tehtava
 (
-nimi String(60),
+id SERIAL PRIMARY KEY,
+nimi varchar(60),
 kuvaus varchar(255)
 );
