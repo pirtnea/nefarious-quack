@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Projektin työaikaseuranta</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.css" rel="stylesheet">
+        <link href="../css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <h1 class="navbar-text">Projektin työaikaseuranta</h1>
+            <a href="/Aikaseuranta/html-demo/sisaandemo.html" class="navbar-link navbar-right">Kirjaudu ulos</a>
+        </nav>
+        <ul class="nav nav-pills">
+            <li><a href="/Aikaseuranta/html-demo/etusivudemo.html">Etusivu</a></li>
+            <li class ="active"><a href="/Aikaseuranta/html-demo/projektidemo.html">Projektinhallinta</a></li>
+            <li><a href="/Aikaseuranta/html-demo/raporttidemo.html">Raportit</a></li>
+            <li><a href="/Aikaseuranta/html-demo/kirjausdemo.html">Kirjaukset</a></li>
+        </ul>
+        <div class="container">
+            <h1>Aktiivinen projekti</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Henkilöstö</th>
+                        <th>Työtehtävä</th>
+                        <th>Viimeisin kirjaus</th>
+                        <th>Työtunnit yhteensä</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>tembo</td>
+                        <td>Koodaaminen</td>
+                        <td>1.1.1990</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>pine</td>
+                        <td>Väsyminen</td>
+                        <td>1.1.1990</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>pine</td>
+                        <td>Hajoaminen</td>
+                        <td>10.6.1994</td>
+                        <td>30</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="/Aikaseuranta/html-demo/muokkausdemo.html"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Muokkaa</button></a>
+            <h2>Projektivalikko</h2>
+            <div class="panel panel-default">
+                <ul class="nav">
+                    <li class="active"><a href="#">Ensimmäinen</a></li>
+                    <li><a href="#">Toinen</a></li>
+                    <li><a href="#">Kolmas linkki projektiin</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
