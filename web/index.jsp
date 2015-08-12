@@ -34,8 +34,8 @@
       -->
       
       <li><a href="http://t-pine.users.cs.helsinki.fi/ConnectionTest">Connectiontest-ohjelma</a></li>
-      <li><a href="http://t-pine.users.cs.helsinki.fi/Aikaseuranta/html-demo/index.jsp">HTML-demosivujen etusivu</a></li>
-      <li><a href="http://t-pine.users.cs.helsinki.fi/Aikaseuranta/Listaustesti">Ensimmäinen oma tietokantalistaus</a></li>
+      <li><a href="http://t-pine.users.cs.helsinki.fi/Aikaseuranta/html-demo/etusivudemo.html">HTML-demosivujen etusivu</a></li>
+      <li><a href="http://t-pine.users.cs.helsinki.fi/Aikaseuranta/Listaustesti">Ensimmäinen oma tietokantalistaus (täällä ei ole mitään)</a></li>
       
       <!-- Viikolla 3 laita alla kommentoitu linkki osoittamaan omaan kirjautumissivuusi. -->
       <!--

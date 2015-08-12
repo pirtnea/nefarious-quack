@@ -1,9 +1,9 @@
-DROP TABLE Projekti
+DROP TABLE Projekti;
 
-DROP TABLE Paallikko
+DROP TABLE Kirjaus;
 
-DROP TABLE Kirjaus
+DROP TABLE Kayttaja;
 
-DROP TABLE Kayttaja
+DROP TABLE Tehtava;
 
-DROP TABLE Tehtava
+DROP TABLE Kayttajan_projektit;

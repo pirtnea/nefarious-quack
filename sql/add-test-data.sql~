@@ -1,0 +1,8 @@
+INSERT INTO Kayttaja (etunimi, sukunimi, kayttajatunnus, rooli)
+VALUES ('Asdliina', 'Asdukka', 'asd', 'kayttaja');
+
+INSERT INTO Kayttaja (etunimi, sukunimi, kayttajatunnus, rooli)
+VALUES ('Mikko', 'Mallikas', 'mmikko', 'kayttaja');
+
+INSERT INTO Kayttaja (etunimi, sukunimi, kayttajatunnus, rooli)
+VALUES ('Projekti', 'Päällikkö', 'ebin', 'paallikko');
