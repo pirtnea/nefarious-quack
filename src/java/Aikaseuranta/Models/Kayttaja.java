@@ -82,9 +82,7 @@ public class Kayttaja {
 
     //materiaalin valmis metodi testaukseen
     public static Kayttaja etsiKayttajatunnuksilla(String kayttaja, String salasana) throws SQLException {
-        System.out.println(kayttaja);
-        System.out.println(salasana);
-        String sql = "SELECT kayttajatunnus, salasana from kayttaja where kayttajatunnus = ? AND salasana = ?";
+        String sql = "SELECT kayttajatunnus, salasana FROM kayttaja WHERE kayttajatunnus = ? AND salasana = ?";
         Connection yhteys = Yhteys.muodostaYhteys();
         PreparedStatement kysely = yhteys.prepareStatement(sql);
         kysely.setString(1, kayttaja);
@@ -110,21 +108,9 @@ public class Kayttaja {
         //Jos kysely ei tuottanut tuloksia käyttäjä on nyt vielä null.
         //Suljetaan kaikki resurssit:        
         try {
-            rs.close();
+            Yhteys.suljeYhteydet(rs, kysely, yhteys);
         } catch (Exception e) {
-
-        }
-
-        try {
-            kysely.close();
-        } catch (Exception e) {
-
-        }
-
-        try {
-            yhteys.close();
-        } catch (Exception e) {
-
+            
         }
 
         //Käyttäjä palautetaan vasta täällä, kun resurssit on suljettu onnistuneesti.

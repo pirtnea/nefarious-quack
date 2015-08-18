@@ -1,5 +1,10 @@
 package Aikaseuranta.Models;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Tyotehtava {
     
     private int id;
@@ -43,5 +48,27 @@ public class Tyotehtava {
 
     public void setKuvaus(String kuvaus) {
         this.kuvaus = kuvaus;
+    }
+    
+    public void lisaaTyotehtava(Tyotehtava tyotehtava) throws SQLException {
+        String sql = "INSERT INTO tehtava (tehtavan_nimi, kuvaus) VALUES (?, ?) RETURNING id";
+        Connection yhteys = Yhteys.muodostaYhteys();
+        PreparedStatement kysely = yhteys.prepareStatement(sql);
+        kysely.setString(1, tyotehtava.getNimi());
+        kysely.setString(1, tyotehtava.getKuvaus());
+        kysely.executeUpdate();
+        kysely.close();
+        yhteys.close();
+    }
+    
+    public void poistaTyotehtava(String tyotehtava, String projekti) throws SQLException {
+        String sql = "DELETE FROM tehtava WHERE tehtavan_nimi=? AND projektin_nimi=?";
+        Connection yhteys = Yhteys.muodostaYhteys();
+        PreparedStatement kysely = yhteys.prepareStatement(sql);
+        kysely.setString(1, tyotehtava);
+        kysely.setString(2, projekti);
+        kysely.executeUpdate();
+        kysely.close();
+        yhteys.close();
     }
 }
