@@ -1,5 +1,6 @@
 <%@tag description="put the tag description here" pageEncoding="UTF-8"%>
 <%@attribute name="message"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
     <head>
@@ -15,5 +16,8 @@
 
     <div class="container">
         <jsp:doBody/>
+        <c:if test="${virheViesti != null}">
+            <div class="alert alert-danger">${virheViesti}</div>
+        </c:if>
     </div>
 </html>

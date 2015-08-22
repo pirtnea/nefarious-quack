@@ -1,12 +1,18 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:pohja>
-        <h1>Testi</h1>
-        <ul>
-            <li>Tähän</li>
-            <li>lista</li>
-            <li>projekteista.</li>
-            <li>Linkitys suoraan projektin muokkaus-/tietosivulle? (<a href="/Aikaseuranta/projektit.jsp">näin</a>)</li>
-        </ul>
+    <body>
+        <h2>Olet kirjautuneena käyttäjänä ${kirjautunut.kayttajatunnus}.</h2>
+
+        <table>
+            <th>Projektit</th>
+                <c:forEach var="projekti" items="${projektit}">
+                <tr>
+                    <td>${projekti}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </body>
 </t:pohja>

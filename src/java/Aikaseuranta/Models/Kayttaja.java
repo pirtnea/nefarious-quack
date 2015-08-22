@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Kayttaja {
 
@@ -115,5 +118,58 @@ public class Kayttaja {
 
         //Käyttäjä palautetaan vasta täällä, kun resurssit on suljettu onnistuneesti.
         return kirjautunut;
+    }
+    
+    public List<Kayttaja> listaaKayttajat() throws SQLException {
+        String sql = "SELECT * FROM kayttaja ORDER BY kayttajatunnus";
+        Connection yhteys = Yhteys.muodostaYhteys();
+        PreparedStatement kysely = yhteys.prepareStatement(sql);
+        ResultSet rs = kysely.executeQuery();
+        
+        ArrayList<Kayttaja> lista = new ArrayList<Kayttaja>();
+        
+        if (rs.next()) {
+            int tunnus = rs.getInt("id");
+            String enimi = rs.getString("etunimi");
+            String snimi = rs.getString("sukunimi");
+            String knimi = rs.getString("kayttajatunnus");
+            String ssana = rs.getString("salasana");
+            String kayttajanRooli = rs.getString("rooli");
+            Kayttaja kayttaja = new Kayttaja(tunnus, enimi, snimi, knimi, ssana, kayttajanRooli);
+            lista.add(kayttaja);
+        }
+        
+        try {
+            Yhteys.suljeYhteydet(rs, kysely, yhteys);
+        } catch (Exception e) {
+            
+        }
+        
+        return lista;   
+        
+    }
+    
+    public List<String> listaaProjektinTyotekijat(String projektinNimi) throws SQLException {
+        String sql = "SELECT kayttajatunnus FROM kayttajan_projektit WHERE projektin_nimi=?";
+        Connection yhteys = Yhteys.muodostaYhteys();
+        PreparedStatement kysely = yhteys.prepareStatement(sql);
+        kysely.setString(1, projektinNimi);
+        ResultSet rs = kysely.executeQuery();
+        
+        ArrayList<String> lista = new ArrayList<String>();
+        
+        if (rs.next()) {
+            String kayttaja = rs.getString("kayttajatunnus");
+            lista.add(kayttaja);
+        }
+        
+        try {
+            Yhteys.suljeYhteydet(rs, kysely, yhteys);
+        } catch (Exception e) {
+            
+        }
+        
+        return lista;
+    
     }
 }

@@ -25,6 +25,7 @@ public class Kirjautuminen extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     private Kayttaja k = new Kayttaja();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {

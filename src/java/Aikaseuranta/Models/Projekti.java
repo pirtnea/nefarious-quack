@@ -53,6 +53,32 @@ public class Projekti {
         this.pvm = pvm;
     }
     
+    public Projekti getProjekti(String projektinNimi) throws SQLException {
+        String sql = "SELECT * FROM projekti WHERE projektin_nimi=?";
+        Connection yhteys = Yhteys.muodostaYhteys();
+        PreparedStatement kysely = yhteys.prepareStatement(sql);
+        kysely.setString(1, projektinNimi);
+        ResultSet rs = kysely.executeQuery();
+        
+        Projekti projekti = null;
+        
+        if (rs.next()) {
+            int tunnus = rs.getInt("id");
+            String projektin_nimi = rs.getString("projektin_nimi");
+            Date paivamaara = rs.getDate("pvm");
+            projekti = new Projekti(tunnus, projektinNimi, paivamaara);            
+        }
+        
+        try {
+            Yhteys.suljeYhteydet(rs, kysely, yhteys);
+        } catch (Exception e) {
+            
+        }
+        
+        return projekti;
+
+    }
+    
     public List<Projekti> listaaProjektit() throws SQLException {
         String sql = "SELECT * FROM projekti ORDER BY projektin_nimi";
         Connection yhteys = Yhteys.muodostaYhteys();
@@ -62,10 +88,10 @@ public class Projekti {
         ArrayList<Projekti> lista = new ArrayList<Projekti>();
         
         if (rs.next()) {
-            int id = rs.getInt("id");
+            int tunnus = rs.getInt("id");
             String projektinNimi = rs.getString("projektin_nimi");
-            Date pvm = rs.getDate("pvm");
-            Projekti projekti = new Projekti(id, projektinNimi, pvm);
+            Date paivamaara = rs.getDate("pvm");
+            Projekti projekti = new Projekti(tunnus, projektinNimi, paivamaara);
             lista.add(projekti);
         }
         
@@ -79,5 +105,27 @@ public class Projekti {
         
     }
     
+    public void lisaaTyontekijaProjektiin(String projektinNimi, String kayttajatunnus) throws SQLException {
+        String sql = "INSERT INTO kayttajan_projektit VALUES (?,?)";
+        Connection yhteys = Yhteys.muodostaYhteys();
+        PreparedStatement kysely = yhteys.prepareStatement(sql);
+        kysely.setString(1, projektinNimi);
+        kysely.setString(2, kayttajatunnus);
+        kysely.executeUpdate();
+        kysely.close();
+        yhteys.close();
+    }
     
+    public void poistaTyontekijaProjektista(String projektinNimi, String kayttajatunnus) throws SQLException {
+        String sql = "DELETE FROM kayttajan_projektit WHERE projektin_nimi=? AND kayttajatunnus=?";
+        Connection yhteys = Yhteys.muodostaYhteys();
+        PreparedStatement kysely = yhteys.prepareStatement(sql);
+        kysely.setString(1, projektinNimi);
+        kysely.setString(2, kayttajatunnus);
+        kysely.executeUpdate();
+        kysely.close();
+        yhteys.close();
+    }
 }
+
+

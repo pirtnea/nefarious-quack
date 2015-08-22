@@ -1,22 +1,24 @@
 package Aikaseuranta.Models;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class Kirjaus {
     
     private int id;
     private Date pvm;
-    private int tunnit;
+    private double tunnit;
     private String tyotehtava;
     private String projektinNimi;
     private String kayttajatunnus;
-    private String kuvaus;
 
     public Kirjaus() {
         
     }
 
-    public Kirjaus(Date pvm, int tunnit, String tyotehtava, String projektinNimi, String kayttajatunnus) {
+    public Kirjaus(Date pvm, double tunnit, String tyotehtava, String projektinNimi, String kayttajatunnus) {
         this.pvm = pvm;
         this.tunnit = tunnit;
         this.tyotehtava = tyotehtava;
@@ -24,14 +26,13 @@ public class Kirjaus {
         this.kayttajatunnus = kayttajatunnus;
     }
 
-    public Kirjaus(int id, Date pvm, int tunnit, String tyotehtava, String projektinNimi, String kayttajatunnus, String kuvaus) {
+    public Kirjaus(int id, Date pvm, double tunnit, String tyotehtava, String projektinNimi, String kayttajatunnus) {
         this.id = id;
         this.pvm = pvm;
         this.tunnit = tunnit;
         this.tyotehtava = tyotehtava;
         this.projektinNimi = projektinNimi;
         this.kayttajatunnus = kayttajatunnus;
-        this.kuvaus = kuvaus;
     }
 
     public int getId() {
@@ -42,7 +43,7 @@ public class Kirjaus {
         return pvm;
     }
 
-    public int getTunnit() {
+    public double getTunnit() {
         return tunnit;
     }
 
@@ -58,10 +59,6 @@ public class Kirjaus {
         return kayttajatunnus;
     }
 
-    public String getKuvaus() {
-        return kuvaus;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -70,7 +67,7 @@ public class Kirjaus {
         this.pvm = pvm;
     }
 
-    public void setTunnit(int tunnit) {
+    public void setTunnit(double tunnit) {
         this.tunnit = tunnit;
     }
 
@@ -85,8 +82,18 @@ public class Kirjaus {
     public void setKayttajatunnus(String kayttajatunnus) {
         this.kayttajatunnus = kayttajatunnus;
     }
-
-    public void setKuvaus(String kuvaus) {
-        this.kuvaus = kuvaus;
-    }  
+    
+    public void lisaaKirjaus(Kirjaus kirjaus) throws SQLException {
+        String sql = "INSERT INTO VALUES (?,?,?,?,?) RETURNING id";
+        Connection yhteys = Yhteys.muodostaYhteys();
+        PreparedStatement kysely = yhteys.prepareStatement(sql);
+        kysely.setDate(1, (java.sql.Date) kirjaus.getPvm());
+        kysely.setDouble(2, kirjaus.getTunnit());
+        kysely.setString(3, kirjaus.getTyotehtava());
+        kysely.setString(4, kirjaus.getProjektinNimi());
+        kysely.setString(5, kirjaus.getKayttajatunnus());
+        kysely.executeUpdate();
+        kysely.close();
+        yhteys.close();
+    }
 }
