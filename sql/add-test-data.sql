@@ -12,3 +12,6 @@ VALUES ('Projekti', '2015-08-13');
 
 INSERT INTO Projekti (projektin_nimi, pvm)
 VALUES ('Maailmanvalloitus', '2000-01-01');
+
+INSERT INTO Kayttajan_projektit (projektin_nimi, kayttajatunnus)
+VALUES ('Projekti', 'asd');

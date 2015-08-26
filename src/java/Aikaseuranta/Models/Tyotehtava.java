@@ -63,12 +63,11 @@ public class Tyotehtava {
         yhteys.close();
     }
     
-    public void poistaTyotehtava(String tyotehtava, String projekti) throws SQLException {
-        String sql = "DELETE FROM tehtava WHERE tehtavan_nimi=? AND projektin_nimi=?";
+    public void poistaTyotehtava(String tyotehtava) throws SQLException {
+        String sql = "DELETE FROM tehtava WHERE tehtavan_nimi=?";
         Connection yhteys = Yhteys.muodostaYhteys();
         PreparedStatement kysely = yhteys.prepareStatement(sql);
         kysely.setString(1, tyotehtava);
-        kysely.setString(2, projekti);
         kysely.executeUpdate();
         kysely.close();
         yhteys.close();

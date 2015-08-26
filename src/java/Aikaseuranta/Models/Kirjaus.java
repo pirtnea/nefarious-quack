@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class Kirjaus {
-    
+
     private int id;
     private Date pvm;
     private double tunnit;
@@ -15,7 +15,7 @@ public class Kirjaus {
     private String kayttajatunnus;
 
     public Kirjaus() {
-        
+
     }
 
     public Kirjaus(Date pvm, double tunnit, String tyotehtava, String projektinNimi, String kayttajatunnus) {
@@ -82,7 +82,7 @@ public class Kirjaus {
     public void setKayttajatunnus(String kayttajatunnus) {
         this.kayttajatunnus = kayttajatunnus;
     }
-    
+
     public void lisaaKirjaus(Kirjaus kirjaus) throws SQLException {
         String sql = "INSERT INTO VALUES (?,?,?,?,?) RETURNING id";
         Connection yhteys = Yhteys.muodostaYhteys();
@@ -90,8 +90,8 @@ public class Kirjaus {
         kysely.setDate(1, (java.sql.Date) kirjaus.getPvm());
         kysely.setDouble(2, kirjaus.getTunnit());
         kysely.setString(3, kirjaus.getTyotehtava());
-        kysely.setString(4, kirjaus.getProjektinNimi());
-        kysely.setString(5, kirjaus.getKayttajatunnus());
+        kysely.setString(4, kirjaus.getKayttajatunnus());
+        kysely.setString(5, kirjaus.getProjektinNimi());
         kysely.executeUpdate();
         kysely.close();
         yhteys.close();

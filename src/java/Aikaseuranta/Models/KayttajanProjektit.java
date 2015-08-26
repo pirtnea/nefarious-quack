@@ -47,8 +47,11 @@ public class KayttajanProjektit {
         ArrayList<String> lista = new ArrayList<String>();
 
         if (rs.next()) {
-            String projektinNimi = rs.getString("projektin_nimi");
-            lista.add(projektinNimi);
+            String projektin_nimi = rs.getString("projektin_nimi");
+            lista.add(projektin_nimi);
+            //System.out.println(projektin_nimi+"bööööööööööööööööööööööööööööö");
+            Yhteys.suljeYhteydet(rs, kysely, yhteys);
+            return lista;
         }
 
         try {
@@ -57,7 +60,7 @@ public class KayttajanProjektit {
 
         }
 
-        return lista;
+        return null;
     
     }
 }

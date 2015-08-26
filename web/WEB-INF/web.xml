@@ -5,24 +5,24 @@
         <servlet-class>Aikaseuranta.Servlets.Kirjautuminen</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Etusivu</servlet-name>
-        <servlet-class>Aikaseuranta.Servlets.Etusivu</servlet-class>
+        <servlet-name>TyontekijanProjektienListaaminen</servlet-name>
+        <servlet-class>Aikaseuranta.Servlets.TyontekijanProjektienListaaminen</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Muokkaus</servlet-name>
-        <servlet-class>Aikaseuranta.Servlets.Muokkaus</servlet-class>
+        <servlet-name>Projektilistaus</servlet-name>
+        <servlet-class>Aikaseuranta.Servlets.Projektilistaus</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Kirjautuminen</servlet-name>
         <url-pattern>/Kirjautuminen</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Etusivu</servlet-name>
-        <url-pattern>/Etusivu</url-pattern>
+        <servlet-name>TyontekijanProjektienListaaminen</servlet-name>
+        <url-pattern>/TyontekijanProjektienListaaminen</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Muokkaus</servlet-name>
-        <url-pattern>/Muokkaus</url-pattern>
+        <servlet-name>Projektilistaus</servlet-name>
+        <url-pattern>/Projektilistaus</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

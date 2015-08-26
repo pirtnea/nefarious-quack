@@ -70,12 +70,13 @@ public class Kirjautuminen extends HttpServlet {
         if (k != null) {
             //Tallennetaan istuntoon käyttäjäolio
             session.setAttribute("kirjautunut", k);
+            session.setAttribute("ktunnus", k.getKayttajatunnus());
         }
         
         /* Tarkistetaan onko parametrina saatu oikeat tunnukset */
         if (k != null && kayttaja.equals(k.getKayttajatunnus()) && salasana.equals(k.getSalasana())) {
             /* Jos tunnus on oikea, ohjataan käyttäjä HTTP-ohjauksella kissalistaan. */
-            response.sendRedirect("etusivu.jsp");
+            response.sendRedirect("/Aikaseuranta/Projektilistaus");
         } else {
             /* Väärän tunnuksen syöttänyt saa eteensä lomakkeen ja virheen.
              * Tässä käytetään omalta yläluokalta perittyjä yleiskäyttöisiä metodeja.
