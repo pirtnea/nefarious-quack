@@ -71,6 +71,7 @@ public class Kirjautuminen extends HttpServlet {
             //Tallennetaan istuntoon käyttäjäolio
             session.setAttribute("kirjautunut", k);
             session.setAttribute("ktunnus", k.getKayttajatunnus());
+            session.setAttribute("rooli", k.getRooli());
         }
         
         /* Tarkistetaan onko parametrina saatu oikeat tunnukset */

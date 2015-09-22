@@ -15,3 +15,6 @@ VALUES ('Maailmanvalloitus', '2000-01-01');
 
 INSERT INTO Kayttajan_projektit (projektin_nimi, kayttajatunnus)
 VALUES ('Projekti', 'asd');
+
+INSERT INTO Kayttajan_projektit (projektin_nimi, kayttajatunnus)
+VALUES ('Maailmanvalloitus', 'asd');

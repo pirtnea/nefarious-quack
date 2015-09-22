@@ -1,12 +1,7 @@
 package Aikaseuranta.Servlets;
 
-import Aikaseuranta.Models.KayttajanProjektit;
-import Aikaseuranta.Models.Projekti;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +13,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author pine
  */
-public class Projektilistaus extends HttpServlet {
+public class TuntienKirjaus extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,26 +24,24 @@ public class Projektilistaus extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private Projekti p = new Projekti();
-    private KayttajanProjektit kp = new KayttajanProjektit();
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
-
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(false);
         RequestDispatcher dp;
-        //System.out.println("tttttttttttttttttttttttttttttttttttttt");
-        if (session.getAttribute("kirjautunut") != null) {            
+
+        if (session.getAttribute("kirjautunut") != null) {
+            String projektinNimi = request.getParameter("projektin_nimi");
             String ktunnus = (String) session.getAttribute("ktunnus");
-            List<String> listaus = kp.listaaKayttajanProjektit(ktunnus);
-            //System.out.println(listaus);
-            request.setAttribute("kayttajanProjektit", listaus);
-            dp = request.getRequestDispatcher("etusivu.jsp");
-            dp.forward(request, response);            
+            String pvm = request.getParameter("pvm");
+
+            
+            dp = request.getRequestDispatcher("kirjaukset.jsp");
+            dp.forward(request, response);
         } else {
             response.sendRedirect("/Aikaseuranta/Kirjautuminen");
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,11 +56,7 @@ public class Projektilistaus extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(Projektilistaus.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -81,11 +70,7 @@ public class Projektilistaus extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(Projektilistaus.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

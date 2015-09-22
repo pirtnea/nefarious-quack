@@ -19,7 +19,7 @@
             <a href="/Aikaseuranta/kirjautuminen.jsp" class="navbar-link navbar-right">Kirjaudu ulos</a>
         </nav>
         <ul class="nav nav-pills">
-            <li><a href="/Aikaseuranta/etusivu.jsp">Etusivu</a></li>
+            <li><a href="/Aikaseuranta/Projektilistaus">Etusivu</a></li>
             <li><a href="/Aikaseuranta/projektit.jsp">Projektinhallinta</a></li>
             <li><a href="/Aikaseuranta/raportit.jsp">Raportit</a></li>
             <li><a href="/Aikaseuranta/kirjaukset.jsp">Kirjaukset</a></li>

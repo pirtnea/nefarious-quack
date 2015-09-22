@@ -35,12 +35,11 @@
       
       <li><a href="http://t-pine.users.cs.helsinki.fi/ConnectionTest">Connectiontest-ohjelma</a></li>
       <li><a href="http://t-pine.users.cs.helsinki.fi/Aikaseuranta/html-demo/etusivudemo.html">HTML-demosivujen etusivu</a></li>
-      <li><a href="http://t-pine.users.cs.helsinki.fi/Aikaseuranta/Listaustesti">Ensimmäinen oma tietokantalistaus (täällä ei ole mitään)</a></li>
       
       <!-- Viikolla 3 laita alla kommentoitu linkki osoittamaan omaan kirjautumissivuusi. -->
-      <!--
-      <li><a href="http://cstunnus.users.cs.helsinki.fi/Tietokantasovellus/index.php">Sovelluksen kirjautumissivu</a></li>
-      -->
+      
+      <li><a href="http://t-pine.users.cs.helsinki.fi/Aikaseuranta/Kirjautuminen">Sovelluksen kirjautumissivu</a></li>
+      
     </ul>
 
     <h2>Työn aihe</h2>
@@ -48,13 +47,11 @@
     <a href="http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Projektin_tyoaikaseuranta.html">
       projektin työaikaseuranta</a>.
 
-    <!--
+    
     <h2>Kirjautumistunnuksia testausta varten</h2>
 
-    <p>Laita tähän viikolla 3 lista tunnuksista, joilla sovellusta voi testata</p>
-    <p>Esim:<br />
-    Pääkäyttäjän tunnus ja salasana:<br /> admin, kissakala
-    </p>
-    -->
+    
+    <p>Normaalin käyttäjän testitunnukset: asd, asd</p>
+    
   </body>
 </html>

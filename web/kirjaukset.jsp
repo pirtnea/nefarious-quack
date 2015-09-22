@@ -2,5 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:pohja>
-   
+    <body>
+        <h2>Kirjaus projektiin ${aktiivinenProjekti}</h2>
+    </body>
 </t:pohja>

@@ -5,24 +5,24 @@
         <servlet-class>Aikaseuranta.Servlets.Kirjautuminen</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>TyontekijanProjektienListaaminen</servlet-name>
-        <servlet-class>Aikaseuranta.Servlets.TyontekijanProjektienListaaminen</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Projektilistaus</servlet-name>
         <servlet-class>Aikaseuranta.Servlets.Projektilistaus</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TuntienKirjaus</servlet-name>
+        <servlet-class>Aikaseuranta.Servlets.TuntienKirjaus</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Kirjautuminen</servlet-name>
         <url-pattern>/Kirjautuminen</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>TyontekijanProjektienListaaminen</servlet-name>
-        <url-pattern>/TyontekijanProjektienListaaminen</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Projektilistaus</servlet-name>
         <url-pattern>/Projektilistaus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TuntienKirjaus</servlet-name>
+        <url-pattern>/TuntienKirjaus</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
